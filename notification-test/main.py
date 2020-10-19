@@ -22,6 +22,7 @@ arr1 = None
 def hello_world(request):
     recdata = flask.request.json
     fcm_id = recdata['fcm_id']
+    arr1 = []
     arr1 = arr1.append(fcm_id)
     
     
