@@ -18,9 +18,13 @@ import ast
 firebase_admin.initialize_app()
 db = firestore.client()
 
-
+arr1 = None
 def hello_world(request):
     recdata = flask.request.json
+    fcm_id = recdata['fcm_id']
+    arr1 = arr1.append(fcm_id)
+    
+    
     data = {
         "notification": {
             "body": "Notification from postman",
@@ -33,8 +37,7 @@ def hello_world(request):
             "status": "done"
         },
         # "to": "/topics/all",
-        "registration_ids": [
-            'eaSIuUXzRjC3YwIJDnpHbX:APA91bGD56SST2KsD9DByj1e6clD9dt65dkIFLeCB9CVKYNbr3n5xk0dlLk__zzXs_q-Hhh9bDDnkaQ4ljVhxEQozSMPhpc7x6_0N_LCkDeJhTt0YnrHzv-BwGe_9o4o7st-HwHstEhA']
+        "registration_ids":arr1
     }
 
     headers = {
