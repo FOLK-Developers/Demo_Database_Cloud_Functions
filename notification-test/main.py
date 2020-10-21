@@ -23,8 +23,8 @@ def hello_world(request):
     recdata = flask.request.json
     fcm_id = recdata['fcm_id']
     print("fcmid type = ", type(fcm_id))
-    arr1 = []
-    arr1.append(fcm_id)
+#   arr1 = []
+#   arr1.append(fcm_id)
     
     
     data = {
@@ -39,7 +39,7 @@ def hello_world(request):
             "status": "done"
         },
         # "to": "/topics/all",
-        "registration_ids": arr1
+        "registration_ids": fcm_id
     }
 
     headers = {
