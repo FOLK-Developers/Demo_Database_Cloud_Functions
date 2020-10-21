@@ -25,7 +25,17 @@ def hello_world(request):
     print("fcmid type = ", type(fcm_id))
 #   arr1 = []
 #   arr1.append(fcm_id)
-    
+    to_ids = None
+    fid = None
+
+    if fcm_id is None or len(fcm_id) == 0:
+        fid = "to"
+        to_ids = "/topics/all"
+    else:
+        fid = "registration_ids"
+        to_ids = fcm_id
+
+    event_id = recdata['event_id']
     
     data = {
         "notification": {
@@ -36,10 +46,12 @@ def hello_world(request):
         "data": {
             "click_action": "FLUTTER_NOTIFICATION_CLICK",
             "id": "1",
-            "status": "done"
+            "status": "done",
+            "event_id" : event_id
         },
         # "to": "/topics/all",
-        "registration_ids": fcm_id
+        fid: to_ids
+        #"registration_ids": fcm_id
     }
 
     headers = {
