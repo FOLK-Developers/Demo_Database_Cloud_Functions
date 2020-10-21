@@ -43,8 +43,8 @@ def hello_world(request):
 
     headers = {
         'Content-type': 'application/json',
-        #'Authorization': 'key=AAAANwzJXd8:APA91bGr_iEZG2r4VFv5SEuVIRHM3511N-6TTIgh46Jkp52ko25UIg-pEkrGOR-2gitB5IP0L86RQa6AwDxdHwIqltGffnZeZXx5i836HLiIEyaG7La69mD6gM_sQlpfnNHsctkCle-1'
-        'Authorization': 'fAV9wSaLTiCem7XuIi7TJ7:APA91bE7iFgAdhZUqv_aTX_nq7v61ErDezERL4giwMg03Js000DuJAXvYpK3e_X3rAdgz5R5mYAP4abNoM7zLIpXns21NdMC3x_OLpgAMRgpWhuS2QlpjcWVjDUTwRq2qAGEMZzi-n7J'
+        'Authorization': 'key=AAAANwzJXd8:APA91bGr_iEZG2r4VFv5SEuVIRHM3511N-6TTIgh46Jkp52ko25UIg-pEkrGOR-2gitB5IP0L86RQa6AwDxdHwIqltGffnZeZXx5i836HLiIEyaG7La69mD6gM_sQlpfnNHsctkCle-1'
+        #'Authorization': 'fAV9wSaLTiCem7XuIi7TJ7:APA91bE7iFgAdhZUqv_aTX_nq7v61ErDezERL4giwMg03Js000DuJAXvYpK3e_X3rAdgz5R5mYAP4abNoM7zLIpXns21NdMC3x_OLpgAMRgpWhuS2QlpjcWVjDUTwRq2qAGEMZzi-n7J'
     }
     
     result = requests.post('https://fcm.googleapis.com/fcm/send', data=json.dumps(data), headers=headers)
