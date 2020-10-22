@@ -23,7 +23,7 @@ def hello_world(request):
     fcm_id = recdata['fcm_id']
     event_id = recdata['event_id']
     typ = recdata['notification_type']
-    FOLK_guide = recdata['FOLK_guide']
+    folk_guide = recdata['FOLK_guide']
     user_name = recdata['user_name']
     user_zone = recdata['user_zone']
     user_phone = recdata['user_phone']
