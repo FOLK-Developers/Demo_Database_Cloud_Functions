@@ -48,6 +48,9 @@ def hello_world(request):
     if fcm_id is not None:
         message_title = "Folk NOTFICATION 2"
         message_body = "Hey, EVENT STARTED"
+        extra_notification_kwargs = {
+        'android_channel_id': 2
+        }
         result = push_service.notify_single_device(registration_id=fcm_id, message_title=message_title,
                                                    data_message=data_message, extra_notification_kwargs=extra_notification_kwargs)
         print("result : ", result)
