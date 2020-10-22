@@ -18,36 +18,57 @@ import ast
 firebase_admin.initialize_app()
 db = firestore.client()
 
-arr1 = None
 def hello_world(request):
     recdata = flask.request.json
     fcm_id = recdata['fcm_id']
     event_id = recdata['event_id']
+    typ = recdata['notification_type']
+    FOLK_guide = recdata['FOLK_guide']
+    user_name = recdata['user_name']
+    user_zone = recdata['user_zone']
+    user_phone = recdata['user_phone']
+    title = recdata['title']
+    body = recdata['body']
+    gender = ['gender']
+
+    docs = db.collection(u'Events').document(event_id)
+    docs = docs.get()
+    docs = docs.to_dict()
+
+    zone = docs['zone']
+    image = docs['event_img_url']
+    program = docs['program']
+    program_title = docs['category']
+    event_link = docs['venue']
+    session = docs['session']
+    
     response = None
+    result = None
     
     data_message = {
     "feedDocumentId": event_id,
-    "type": "typ",
-    "title": "title",
-    "image": "image",
+    "type": typ,
+    "title": title,
+    "image": image,
     "icon": "notificationbar",
     "sound": "text_notification",
     "android_channel_id": "Krishna_Channel",
-    "body": "body",
+    "body": body,
     "click_action": "FLUTTER_NOTIFICATION_CLICK",
-    "zone": "folkevent['zone']",
-    "program": "folkevent['program']",
-    "program_title": "folkevent['category']",
-    "event_link": "folkevent['venue']",
-    "session": "folkevent['session']"
+    "zone": zone,
+    "program": program,
+    "program_title": program_title,
+    "event_link": event_link,
+    "session": session
     }
+    
     push_service = FCMNotification(
     api_key="AAAANwzJXd8:APA91bGr_iEZG2r4VFv5SEuVIRHM3511N-6TTIgh46Jkp52ko25UIg-pEkrGOR-2gitB5IP0L86RQa6AwDxdHwIqltGffnZeZXx5i836HLiIEyaG7La69mD6gM_sQlpfnNHsctkCle-1",
     proxy_dict=None)
 
     if fcm_id is not None:
-        message_title = "Folk NOTFICATION 2"
-        message_body = "Hey, EVENT STARTED"
+        message_title = "New Notification from FOLK!"
+        #message_body = "Hey, EVENT STARTED"
         extra_notification_kwargs = {
         'android_channel_id': 2
         }
@@ -64,6 +85,5 @@ def hello_world(request):
             "output" : "No fcm_id"
         }
         
-        
-    
+            
     return jsonify(response)
