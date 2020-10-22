@@ -34,7 +34,7 @@ def hello_world(request):
     "sound": "text_notification",
     "android_channel_id": "Krishna_Channel",
     "body": "body",
-    "click_action": "FOLKActivity",
+    "click_action": "FLUTTER_NOTIFICATION_CLICK",
     "zone": "folkevent['zone']",
     "program": "folkevent['program']",
     "program_title": "folkevent['category']",
