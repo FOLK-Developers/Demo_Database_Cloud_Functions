@@ -47,7 +47,7 @@ def hello_world(request):
 
     if fcm_id is not None:
         result = push_service.notify_single_device(registration_id=fcm_id, data_message=data_message,extra_notification_kwargs=None)
-        print("result", result)
+        print("result : ", result)
         response = {
             "status" : True,
             "output" : result.text
