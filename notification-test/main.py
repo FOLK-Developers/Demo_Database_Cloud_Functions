@@ -50,7 +50,7 @@ def hello_world(request):
         print("result : ", result)
         response = {
             "status" : True,
-            "output" : result.text
+            "output" : result
         }
     else:
         response = {
