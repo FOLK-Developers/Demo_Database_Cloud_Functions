@@ -46,7 +46,10 @@ def hello_world(request):
     proxy_dict=None)
 
     if fcm_id is not None:
-        result = push_service.notify_single_device(registration_id=fcm_id, data_message=data_message,extra_notification_kwargs=None)
+        message_title = "Folk NOTFICATION 2"
+        message_body = "Hey, EVENT STARTED"
+        result = push_service.notify_single_device(registration_id=fcm_id, message_title=message_title,
+                                                   data_message=data_message, extra_notification_kwargs=extra_notification_kwargs)
         print("result : ", result)
         response = {
             "status" : True,
