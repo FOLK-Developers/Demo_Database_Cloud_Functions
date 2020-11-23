@@ -15,28 +15,14 @@ from flask import request, jsonify
 import datetime
 from datetime import date
 from datetime import datetime
-import pytz
-from pytz import timezone
 import time as t1
 from google.cloud import bigquery
-# time t1
 from time import time
 from google.oauth2 import service_account
 import firebase_admin
-from firebase_admin import credentials
-from google.cloud import bigquery
 import json
-from firebase_admin import credentials
 
 # BIGQUERY
-# TODO(developer): Set key_path to the path to the service account key
-#                  file.
-key_path = "folk-database-firebase-adminsdk-ulj3e-890294e600.json"
-
-credentials = service_account.Credentials.from_service_account_file(
-    key_path, scopes=["https://www.googleapis.com/auth/cloud-platform"],
-)
-
 # # Construct a BigQuery client object.
 client = bigquery.Client()
 
